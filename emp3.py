@@ -14,18 +14,11 @@ if not client.is_user_authorized():
     client.send_code_request(phone_number)
     me = client.sign_in(phone_number, input('Enter code: '))
 
-channel_username='Alex XS' # your channel
-channel_entity=client.get_entity(channel_username)
-posts = client(GetHistoryRequest(
-    peer=channel_entity,
-    limit=100,
-    offset_date=None,
-    offset_id=0,
-    max_id=0,
-    min_id=0,
-    add_offset=0,
-    hash=0))
-# messages stored in `posts.messages`
+my_private_channel_id = None
+my_private_channel = None
 
-print('Channel Entity:', channel_entity)
-print('Posts received:', posts)
+for dialog in client.iter_dialogs():
+    my_private_channel = dialog
+    my_private_channel_id = dialog.id
+    print(my_private_channel, my_private_channel_id)
+
