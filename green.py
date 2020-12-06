@@ -12,7 +12,7 @@ client.start()
 
 print(client.get_me().stringify())
 
-client.send_message('+351918638334', 'teste de python')
+client.send_message('+351939426865', 'teste de python')
 
 if not client.is_user_authorized():
     client.send_code_request(phone_number)
@@ -22,7 +22,7 @@ channel_username='https://t.me/joinchat/AAAAAFFVzbofUqSnF98mFQ' # your channel
 channel_entity=client.get_entity(channel_username)
 posts = client(GetHistoryRequest(
     peer=channel_entity,
-    limit=1,
+    limit=2,
     offset_date=None,
     offset_id=0,
     max_id=0,
